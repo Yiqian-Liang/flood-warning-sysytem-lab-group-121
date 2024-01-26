@@ -40,12 +40,13 @@ class MonitoringStation:
         d += "   typical range: {}".format(self.typical_range)
         return d
     def typical_range_consistent(self):
-        if self.typical_range=='None':
+        if self.typical_range is None:
             return False
-        elif float(self.typical_range[0])>float(self.typical_range[-1]):
-            return False
-        else:
-            return True
+        elif isinstance(self.typical_range, tuple):
+            if float(self.typical_range[0]) > float(self.typical_range[-1]):
+                return False
+        return True
+
         
 def inconsistent_typical_range_stations(stations):
     list=[]

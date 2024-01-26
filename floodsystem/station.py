@@ -40,7 +40,9 @@ class MonitoringStation:
         d += "   typical range: {}".format(self.typical_range)
         return d
     def typical_range_consistent(self):
-        if self.typical_range=='None' or float(self.typical_range[0])>float(self.typical_range[-1]):
+        if self.typical_range=='None':
+            return False
+        elif float(self.typical_range[0])>float(self.typical_range[-1]):
             return False
         else:
             return True
@@ -48,8 +50,8 @@ class MonitoringStation:
 def inconsistent_typical_range_stations(stations):
     list=[]
     for station in stations:
-        if station.typical_range_consistent==False:
+        if not station.typical_range_consistent():
             list.append(station.name)
-    sorted_list=sorted(list, key=lambda x: x[0])
+    sorted_list=sorted(list)
 
     return sorted_list

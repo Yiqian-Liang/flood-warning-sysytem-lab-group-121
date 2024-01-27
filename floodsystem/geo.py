@@ -10,6 +10,8 @@ from .utils import sorted_by_key  # noqa
 #Task1B
 from floodsystem.stationdata import build_station_list
 from haversine import haversine, Unit
+from station import MonitoringStation
+
 Stations = build_station_list()
 def stations_by_distance(stations, p):
     list=[]
@@ -33,6 +35,19 @@ def stations_within_radius(stations, centre, r):
     list=sorted(list, key=lambda x:x[0])
 
     return list
+
+#Task1D
+from floodsystem.stationdata import build_station_list
+Stations = MonitoringStation()
+
+def rivers_with_station(stations):
+    list_of_monitored_rivers=[]
+    for station in stations:
+        if (station.name in list_of_monitored_rivers):
+            pass
+        else:
+            list_of_monitored_rivers.append(station.name)
+    return list_of_monitored_rivers
 
 
 

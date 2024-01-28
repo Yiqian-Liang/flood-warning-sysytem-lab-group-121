@@ -8,7 +8,7 @@ geographical data.
 
 from utils import sorted_by_key  # noqa
 #Task1B
-from stationdata import build_station_list
+from floodsystem.stationdata import build_station_list
 from station import MonitoringStation
 from haversine import haversine, Unit
 Stations = build_station_list()
@@ -55,7 +55,26 @@ def stations_by_river(stations):
     return dic
 
 #Task1E
+from floodsystem.stationdata import build_station_list
+from floodsystem.geo import stations_by_river
 
+def rivers_by_station_number(stations, N):
+    dic_river = stations_by_river(stations)
+
+    my_list = list[zip(dic_river.keys(),dic_river.values())]
+    sorted_my_list =sorted(my_list, key=lambda x:(x[1],x[0]))
+    selected_list_initial = sorted_my_list[0,N]
+    for i in range(N+1, len(sorted_my_list)):
+        if sorted_my_list[i][1] == sorted_my_list[N][1]:
+            selected_list_initial.append(sorted_my_list[i])
+        else:
+            break
+    print(selected_list_initial)
+
+
+
+
+    
 
 
 

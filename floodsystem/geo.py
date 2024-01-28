@@ -6,12 +6,11 @@ geographical data.
 
 """
 
-from .utils import sorted_by_key  # noqa
+from utils import sorted_by_key  # noqa
 #Task1B
 from floodsystem.stationdata import build_station_list
-from haversine import haversine, Unit
 from station import MonitoringStation
-
+from haversine import haversine, Unit
 Stations = build_station_list()
 def stations_by_distance(stations, p):
     list=[]
@@ -48,6 +47,15 @@ def rivers_with_station(stations):
         else:
             list_of_monitored_rivers.append(station.name)
     return list_of_monitored_rivers
+
+def stations_by_river(stations):
+    dic = dict()
+    for i in len(stations):
+        dic[stations[i].name] = ''
+    return dic
+
+#Task1E
+
 
 
 

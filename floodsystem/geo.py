@@ -6,7 +6,7 @@ geographical data.
 
 """
 
-from utils import sorted_by_key  # noqa
+from .utils import sorted_by_key  # noqa
 #Task1B
 from floodsystem.stationdata import build_station_list
 from station import MonitoringStation
@@ -70,7 +70,6 @@ def rivers_by_station_number(stations, N):
         else:
             break
     return selected_list_initial
-
 
 
     

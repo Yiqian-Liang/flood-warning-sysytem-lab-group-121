@@ -5,7 +5,7 @@ from floodsystem.geo import stations_by_river
 #Task1D
 # from floodsystem.stationdata import build_station_list
 
-# data = build_station_list()
+data = build_station_list()
 
 # def rivers_with_station(stations):
 #     list_of_monitored_rivers=[]

@@ -6,7 +6,7 @@ geographical data.
 
 """
 
-from .utils import sorted_by_key  # noqa
+from floodsystem.utils import sorted_by_key  # noqa
 #Task1B
 from floodsystem.stationdata import build_station_list
 from floodsystem.station import MonitoringStation
@@ -58,13 +58,14 @@ def stations_by_river(stations):
 
 #Task1E
 def rivers_by_station_number(stations, N):
+    N-=1
     dic_river = {key: len(value) for key, value in stations_by_river(stations).items()}
     my_list = [(k, v) for k, v in dic_river.items()]
     sorted_list = sorted(my_list, key=lambda t:t[1])
     sorted_list.reverse()
-    selected_list_initial = sorted_list[:N]
+    selected_list_initial = sorted_list[:(N)]
 
-    for i in range(N+1, len(sorted_list)):
+    for i in range(N, len(sorted_list)):
         if sorted_list[i][1] == sorted_list[N][1]:
             selected_list_initial.append(sorted_list[i])
         else:

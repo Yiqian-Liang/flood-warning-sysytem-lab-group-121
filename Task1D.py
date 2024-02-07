@@ -24,6 +24,7 @@ data = build_station_list()
 #     return dic
 
 list1 = rivers_with_station(data)
+print(list1)
 number = len(list1)
 list1=list(list1)
 list1.sort()
@@ -49,4 +50,3 @@ ThamesStation.sort()
 print(f"River Aire : {AireStation}")
 print(f"River Cam : {CamStation}")
 print(f"River Thames : {ThamesStation}")
-

@@ -72,6 +72,11 @@ def rivers_by_station_number(stations, N):
             break
     return selected_list_initial
 
+#Task 1F
+Stations = build_station_list()
+from floodsystem.station import inconsistent_typical_range_stations
+print(inconsistent_typical_range_stations(Stations))
+
 
     
 

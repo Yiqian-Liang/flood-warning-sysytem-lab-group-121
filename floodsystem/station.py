@@ -27,8 +27,9 @@ class MonitoringStation:
         self.typical_range = typical_range
         self.river = river
         self.town = town
+        self.latest_level=None
 
-        self.latest_level = None
+        
 
     def __repr__(self):
         d = "Station name:     {}\n".format(self.name)
@@ -48,7 +49,7 @@ class MonitoringStation:
         return True
     
     def relative_water_level(self):
-        if self.typical_range_consistent==True:
+        if self.typical_range_consistent()==True and self.latest_level!=None:
             difference=float(self.typical_range[-1])-float(self.typical_range[0])
             level_above_lowest=float(self.latest_level)-float(self.typical_range[0])
             Fraction=level_above_lowest/difference
@@ -68,11 +69,11 @@ def inconsistent_typical_range_stations(stations):
 
     return sorted_list
 
-def stations_level_over_threshold(stations, tol):
-    list=[]
-    for station in stations:
-        if station.relative_water_level()!=None:
-            if station.relative_water_level()>float(tol):
-                list.append((station.name,station.relative_water_level()))
-                list=sorted(list, key=lambda x: x[-1])
-    return list
+# def stations_level_over_threshold(stations, tol):
+#     list=[]
+#     for station in stations:
+#         if station.relative_water_level()!=None:
+#             if station.relative_water_level()>float(tol):
+#                 list.append((station.name,station.relative_water_level()))
+#                 list=sorted(list, key=lambda x: x[-1])
+#     return list
